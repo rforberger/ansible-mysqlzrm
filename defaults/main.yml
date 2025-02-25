@@ -1,0 +1,7 @@
+---
+prereq_packages:
+  - "bsd-mailx"
+local_packages:
+  - "mysql-zrm_3.0.0_all.deb"
+
+

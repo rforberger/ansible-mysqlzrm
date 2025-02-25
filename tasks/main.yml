@@ -1,0 +1,25 @@
+---
+
+- name: Install prereq. packages
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ prereq_packages }}"
+
+- name: Rollout debs
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "/tmp/{{ item }}"
+  loop: "{{local_packages }}"
+
+
+- name: install pkgs
+  ansible.builtin.apt:
+    deb: "/tmp/{{ item }}"
+    state: present
+  loop: "{{ local_packages }}"
+
+
+
+
+
